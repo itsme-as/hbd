@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#09070b" />
+  <meta name="description" content="Sebuah halaman kecil penuh cinta untuk ulang tahun Nadziratul Lathifah." />
+  <title>Nadziratul Lathifah's Day 💕❤️</title>
+
+  <!-- Tailwind CSS via CDN: tidak perlu proses build -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --night: #09070b;
+      --night-soft: #100b12;
+      --pink: #f7a9cb;
+      --pink-light: #ffd8e8;
+      --pink-dim: #c86d99;
+      --white: #fff5fa;
+      --muted: #b9aab5;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      background: var(--night);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    ::selection { background: rgba(247, 169, 203, .32); color: white; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    .page-glow {
+      position: fixed; inset: 0; z-index: -3; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 15% 12%, rgba(166, 66, 119, .18), transparent 31%),
+        radial-gradient(ellipse at 88% 32%, rgba(104, 58, 130, .16), transparent 30%),
+        radial-gradient(ellipse at 50% 92%, rgba(192, 84, 131, .11), transparent 38%),
+        #09070b;
+    }
+    .grain {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E");
+    }
+    .glass {
+      background: linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+      border: 1px solid rgba(255, 218, 235, .13);
+      box-shadow: 0 20px 80px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.035);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .pink-glow { box-shadow: 0 0 28px rgba(247,169,203,.18), 0 0 70px rgba(247,169,203,.08); }
+    .pink-text-glow { text-shadow: 0 0 30px rgba(247,169,203,.18); }
+    .eyebrow { letter-spacing: .22em; text-transform: uppercase; }
+    .section-kicker::before, .section-kicker::after { content: ''; height: 1px; width: 28px; background: rgba(247,169,203,.6); display: inline-block; vertical-align: middle; }
+    .section-kicker::before { margin-right: 12px; }
+    .section-kicker::after { margin-left: 12px; }
+    .soft-grid {
+      background-image: linear-gradient(rgba(255,255,255,.027) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.027) 1px, transparent 1px);
+      background-size: 38px 38px;
+      mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 80%, transparent);
+    }
+    .float-slow { animation: floatSlow 7s ease-in-out infinite; }
+    .float-delay { animation: floatSlow 8s ease-in-out 1.2s infinite; }
+    .pulse-soft { animation: pulseSoft 3.6s ease-in-out infinite; }
+    @keyframes floatSlow { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-11px) rotate(2deg); } }
+    @keyframes pulseSoft { 0%,100% { opacity: .45; transform: scale(.96); } 50% { opacity: .9; transform: scale(1.04); } }
+    @keyframes driftUp { from { transform: translateY(12px) scale(.7) rotate(-10deg); opacity: 0; } 15% { opacity: 1; } to { transform: translateY(-110vh) scale(1.25) rotate(18deg); opacity: 0; } }
+    @keyframes twinkle { 0%,100% { opacity: .24; } 50% { opacity: .95; } }
+    .twinkle { animation: twinkle 3s ease-in-out infinite; }
+    .btn-primary {
+      color: #210d19;
+      background: linear-gradient(135deg, #ffddeb 0%, #f7a9cb 60%, #e88eb8 100%);
+      box-shadow: 0 7px 28px rgba(247,169,203,.19), inset 0 1px 0 rgba(255,255,255,.65);
+      transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 34px rgba(247,169,203,.3); filter: saturate(1.07); }
+    .btn-secondary { border: 1px solid rgba(255,216,232,.25); background: rgba(255,255,255,.035); transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+    .btn-secondary:hover { background: rgba(247,169,203,.09); border-color: rgba(255,216,232,.55); transform: translateY(-2px); }
+    .photo-shell { isolation: isolate; background: linear-gradient(145deg, #291622, #100b12 60%, #241329); }
+    .photo-shell img { transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .5s ease; }
+    .photo-shell:hover img { transform: scale(1.045); filter: saturate(1.08); }
+    .photo-placeholder {
+      background:
+        radial-gradient(ellipse at 25% 25%, rgba(247,169,203,.18), transparent 50%),
+        radial-gradient(ellipse at 78% 80%, rgba(183,122,222,.13), transparent 42%),
+        linear-gradient(140deg, #21121f, #0e0a11 70%);
+    }
+    .photo-placeholder::after { content: ''; position: absolute; inset: 10px; border: 1px solid rgba(255,216,232,.14); border-radius: inherit; pointer-events: none; }
+    .corner-mark { position: absolute; width: 22px; height: 22px; border-color: rgba(255,216,232,.6); z-index: 3; pointer-events: none; }
+    .corner-tl { top: 10px; left: 10px; border-top: 1px solid; border-left: 1px solid; }
+    .corner-br { bottom: 10px; right: 10px; border-bottom: 1px solid; border-right: 1px solid; }
+    .heart-particle { position: fixed; z-index: 90; bottom: -35px; pointer-events: none; color: var(--pink-light); animation: driftUp var(--duration, 4.5s) ease-out forwards; filter: drop-shadow(0 0 8px rgba(247,169,203,.65)); }
+    .modal-panel { animation: modalEnter .28s cubic-bezier(.18,.8,.25,1) both; }
+    @keyframes modalEnter { from { opacity: 0; transform: translateY(13px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .reason-card { transition: transform .22s ease, border-color .22s ease, background .22s ease; }
+    .reason-card:hover { transform: translateY(-4px); border-color: rgba(247,169,203,.34); background: rgba(247,169,203,.055); }
+    .shine-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(247,169,203,.65), rgba(255,255,255,.28), transparent); }
+    .focus-ring:focus-visible { outline: 2px solid #ffd8e8; outline-offset: 4px; }
+    @media (max-width: 640px) {
+      html { scroll-padding-top: 70px; }
+      .eyebrow { letter-spacing: .16em; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-glow" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="soft-grid fixed inset-0 -z-2 pointer-events-none opacity-40" aria-hidden="true"></div>
+
+  <!-- Ornamen bintang sederhana -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden -z-0" aria-hidden="true">
+    <span class="absolute left-[8%] top-[19%] text-pink-200/60 text-xs twinkle">✦</span>
+    <span class="absolute left-[47%] top-[8%] text-white/50 text-[9px] twinkle" style="animation-delay:1s">✧</span>
+    <span class="absolute right-[9%] top-[24%] text-pink-100/60 text-sm twinkle" style="animation-delay:1.7s">✦</span>
+    <span class="absolute left-[17%] top-[58%] text-pink-100/35 text-[10px] twinkle" style="animation-delay:2.1s">✧</span>
+    <span class="absolute right-[17%] top-[69%] text-white/30 text-xs twinkle" style="animation-delay:.5s">✦</span>
+  </div>
+
+  <header class="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
+    <a href="#top" class="focus-ring flex items-center gap-3 rounded-full" aria-label="Kembali ke atas">
+      <span class="flex h-10 w-10 items-center justify-center rounded-full border border-pink-200/25 bg-pink-200/[.07] text-pink-100 shadow-[0_0_25px_rgba(247,169,203,.1)]">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.6 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span>
+        <span class="block serif text-base tracking-wide text-white">for my love</span>
+        <span class="block text-[9px] font-semibold uppercase tracking-[.25em] text-pink-200/65">a little birthday page</span>
+      </span>
+    </a>
+    <nav class="flex items-center gap-3 sm:gap-6" aria-label="Navigasi utama">
+      <a class="focus-ring hidden rounded-full px-2 py-2 text-sm text-white/60 transition hover:text-pink-100 sm:inline-block" href="#kenangan">Kenangan</a>
+      <a class="focus-ring hidden rounded-full px-2 py-2 text-sm text-white/60 transition hover:text-pink-100 sm:inline-block" href="#doa">Harapan</a>
+      <a href="#surat" class="focus-ring rounded-full border border-pink-200/25 px-4 py-2 text-xs font-semibold text-pink-100 transition hover:border-pink-100/60 hover:bg-pink-100/[.07] sm:text-sm">Untuk kamu <span aria-hidden="true">♡</span></a>
+    </nav>
+  </header>
+
+  <main id="top" class="relative z-10">
+    <!-- HERO -->
+    <section class="mx-auto grid min-h-[78vh] max-w-7xl items-center gap-12 px-5 pb-16 pt-8 sm:px-8 sm:pb-24 lg:grid-cols-12 lg:gap-8 lg:px-12 lg:pt-10">
+      <div class="relative z-10 lg:col-span-7">
+        <div class="mb-7 inline-flex items-center gap-2 rounded-full border border-pink-200/20 bg-pink-200/[.055] px-4 py-2.5 text-[10px] font-semibold text-pink-100/90 shadow-[0_0_32px_rgba(247,169,203,.06)] sm:text-xs">
+          <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink-300 opacity-50"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-pink-200"></span></span>
+          25 OKTOBER 2026 <span class="text-pink-100/35">/</span> HARI SPESIALMU
+        </div>
+        <p class="eyebrow mb-4 text-[10px] font-semibold text-white/45 sm:text-xs">to the girl who makes my world softer</p>
+        <h1 class="serif max-w-3xl text-[clamp(3rem,10vw,6.8rem)] leading-[.98] tracking-[-.045em] text-white">
+          Selamat ulang tahun,
+          <span class="pink-text-glow mt-2 block italic text-[#f7a9cb]">sayangku.</span>
+        </h1>
+        <p class="mt-7 max-w-xl text-sm leading-7 text-[#c8b7c2] sm:text-base sm:leading-8">
+          <span class="font-semibold text-pink-100">Nadziratul Lathifah </span>, my special homey person.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 min-[390px]:flex-row">
+          <button id="openLetterBtn" type="button" class="focus-ring btn-primary inline-flex min-h-12 items-center justify-center gap-3 rounded-full px-6 py-3 text-sm font-bold">
+            Buka surat <span aria-hidden="true" class="text-lg">♡</span>
+          </button>
+          <a href="#kenangan" class="focus-ring btn-secondary inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white/85">
+            Lihat kenangan <span aria-hidden="true">↘</span>
+          </a>
+        </div>
+        <div class="mt-10 flex items-center gap-3 text-xs text-white/45">
+          <span class="flex -space-x-2" aria-hidden="true"><span class="h-7 w-7 rounded-full border border-[#09070b] bg-gradient-to-br from-pink-100 to-pink-400"></span><span class="h-7 w-7 rounded-full border border-[#09070b] bg-gradient-to-br from-purple-200 to-pink-300"></span><span class="flex h-7 w-7 items-center justify-center rounded-full border border-[#09070b] bg-[#21121f] text-xs text-pink-100">♡</span></span>
+          <span>Dibuat dengan semua rasa sayang aku untuk kamooo.</span>
+        </div>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-[420px] lg:col-span-5 lg:max-w-none">
+        <div class="absolute -inset-5 rounded-[48%_48%_28%_28%] border border-pink-200/10 sm:-inset-8" aria-hidden="true"></div>
+        <div class="absolute -inset-2 rounded-[48%_48%_28%_28%] border border-dashed border-pink-200/10" aria-hidden="true"></div>
+        <div class="float-slow relative mx-auto w-[84%] rotate-[2deg] rounded-[190px_190px_28px_28px] border border-pink-100/25 bg-gradient-to-b from-pink-100/10 via-white/[.025] to-pink-300/[.06] p-2.5 shadow-[0_28px_100px_rgba(0,0,0,.5)] sm:w-[78%] lg:w-[88%]">
+          <div class="photo-shell relative aspect-[4/5] overflow-hidden rounded-[180px_180px_20px_20px]">
+            <img data-photo src="image1.jpeg" alt="Foto favorit Nadziratul Lathifah" class="absolute inset-0 h-full w-full object-cover" fetchpriority="high" />
+            <div class="photo-placeholder absolute inset-0 hidden flex-col items-center justify-center gap-3 px-7 text-center" aria-hidden="true">
+              <span class="serif text-6xl text-pink-100/80">♡</span>
+              <span class="serif text-2xl italic text-pink-50/90">my favorite smile</span>
+              <span class="text-[10px] leading-5 tracking-wide text-white/40"><br><b class="font-semibold text-pink-100/65">image1.jpeg</b></span>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#100812]/80 via-transparent to-[#100812]/10" aria-hidden="true"></div>
+            <span class="corner-mark corner-tl"></span><span class="corner-mark corner-br"></span>
+            <div class="absolute inset-x-4 bottom-5 text-center">
+              <p class="eyebrow text-[8px] font-semibold text-pink-100/70">my favorite person</p>
+              <p class="serif mt-1 text-2xl italic text-white sm:text-3xl">Nadziratul Lathifah</p>
+            </div>
+          </div>
+        </div>
+        <div class="glass float-delay absolute -left-1 top-[16%] rounded-2xl px-3 py-3 sm:-left-2 sm:px-4">
+          <span class="block text-[9px] uppercase tracking-[.2em] text-white/40">officially</span>
+          <span class="serif text-2xl text-pink-100">24 <span class="text-sm italic">years</span></span>
+        </div>
+        <div class="glass float-slow absolute -right-1 bottom-[13%] flex items-center gap-2.5 rounded-2xl px-3 py-3 sm:-right-3 sm:px-4">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-pink-200/10 text-xl text-pink-100">♡</span>
+          <span><span class="block text-[9px] uppercase tracking-[.15em] text-white/40">my dede sayang</span><span class="serif text-base italic text-pink-100">Ipeh ndut</span></span>
+        </div>
+        <span class="absolute -right-2 top-[9%] text-2xl text-pink-200/80 twinkle" aria-hidden="true">✦</span>
+        <span class="absolute bottom-[1%] left-[7%] text-lg text-white/60 twinkle" aria-hidden="true">✧</span>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="mx-auto max-w-5xl px-5 pb-20 sm:px-8 sm:pb-28">
+      <div class="glass relative overflow-hidden rounded-[28px] px-5 py-7 sm:rounded-[34px] sm:px-10 sm:py-9">
+        <div class="absolute -right-16 -top-20 h-48 w-48 rounded-full bg-pink-300/10 blur-3xl" aria-hidden="true"></div>
+        <div class="relative grid items-center gap-6 md:grid-cols-[1fr_auto]">
+          <div>
+            <p class="section-kicker eyebrow text-[9px] font-semibold text-pink-200/70 sm:text-[10px]">the countdown to your day</p>
+            <h2 class="serif mt-3 text-2xl text-white sm:text-3xl">Satu hari untuk dirayakan. <span class="italic text-pink-200">Kamu.</span></h2>
+            <p id="countdownLabel" class="mt-2 text-xs leading-6 text-white/45 sm:text-sm">Menghitung momen menuju hari ulang tahunmu…</p>
+          </div>
+          <div class="grid grid-cols-4 gap-2 sm:gap-3" role="timer" aria-label="Hitung mundur ulang tahun">
+            <div class="min-w-0 rounded-2xl border border-white/[.08] bg-black/20 px-2 py-3 text-center sm:min-w-[67px] sm:px-3 sm:py-4"><span id="days" class="serif block text-2xl text-pink-100 sm:text-3xl">00</span><span class="mt-1 block text-[8px] uppercase tracking-[.12em] text-white/40 sm:text-[9px]">Hari</span></div>
+            <div class="min-w-0 rounded-2xl border border-white/[.08] bg-black/20 px-2 py-3 text-center sm:min-w-[67px] sm:px-3 sm:py-4"><span id="hours" class="serif block text-2xl text-pink-100 sm:text-3xl">00</span><span class="mt-1 block text-[8px] uppercase tracking-[.12em] text-white/40 sm:text-[9px]">Jam</span></div>
+            <div class="min-w-0 rounded-2xl border border-white/[.08] bg-black/20 px-2 py-3 text-center sm:min-w-[67px] sm:px-3 sm:py-4"><span id="minutes" class="serif block text-2xl text-pink-100 sm:text-3xl">00</span><span class="mt-1 block text-[8px] uppercase tracking-[.12em] text-white/40 sm:text-[9px]">Menit</span></div>
+            <div class="min-w-0 rounded-2xl border border-pink-200/20 bg-pink-200/[.07] px-2 py-3 text-center sm:min-w-[67px] sm:px-3 sm:py-4"><span id="seconds" class="serif block text-2xl text-white sm:text-3xl">00</span><span class="mt-1 block text-[8px] uppercase tracking-[.12em] text-pink-100/60 sm:text-[9px]">Detik</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LITTLE LETTER INTRO -->
+    <section id="surat" class="mx-auto max-w-5xl scroll-mt-20 px-5 pb-24 sm:px-8 sm:pb-32">
+      <div class="relative overflow-hidden rounded-[30px] border border-pink-100/15 bg-gradient-to-br from-[#21121d]/90 via-[#120d15]/95 to-[#0e0a10] p-6 sm:rounded-[38px] sm:p-12 lg:p-14">
+        <div class="absolute -right-12 -top-12 h-48 w-48 rounded-full border border-pink-100/10" aria-hidden="true"></div>
+        <div class="absolute -right-5 -top-5 h-48 w-48 rounded-full border border-dashed border-pink-100/10" aria-hidden="true"></div>
+        <div class="absolute right-8 top-8 text-4xl text-pink-100/20" aria-hidden="true">♡</div>
+        <div class="relative max-w-3xl">
+          <p class="eyebrow text-[9px] font-semibold text-pink-200/70 sm:text-[10px]">a note from my heart</p>
+          <h2 class="serif mt-4 text-3xl leading-tight text-white sm:text-5xl">Ada banyak yang mau aku bilang <span class="italic text-pink-200">sayang.</span></h2>
+          <div class="my-6 h-px w-24 bg-gradient-to-r from-pink-200/80 to-transparent"></div>
+          <p class="max-w-2xl text-sm leading-7 text-[#c9bac4] sm:text-base sm:leading-8">Dari semua ucapan yang bisa kamu terima hari ini, aku kamu punya satu surat kecil yang bisa dibaca kapan pun kamu butuh diingatkan: kamu berharga, kamu dicintai, dan kehadiranmu berarti bangeddd buat akoooo.</p>
+          <div class="mt-8 flex flex-col gap-4 min-[420px]:flex-row min-[420px]:items-center">
+            <button id="openLetterBtn2" type="button" class="focus-ring btn-primary inline-flex min-h-12 items-center justify-center gap-3 rounded-full px-6 py-3 text-sm font-bold">Baca surat lengkap <span aria-hidden="true">↗</span></button>
+            <span class="text-xs text-white/35">Bacanya pelan-pelan, ya. ♡</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="kenangan" class="mx-auto max-w-7xl scroll-mt-20 px-5 pb-24 sm:px-8 sm:pb-32 lg:px-12">
+      <div class="mb-9 flex flex-col justify-between gap-5 sm:mb-12 md:flex-row md:items-end">
+        <div>
+          <p class="section-kicker eyebrow text-[9px] font-semibold text-pink-200/70 sm:text-[10px]">little pieces of us</p>
+          <h2 class="serif mt-4 text-4xl leading-tight text-white sm:text-5xl">Potongan <span class="italic text-pink-200">kenangan.</span></h2>
+          <p class="mt-3 max-w-xl text-sm leading-7 text-white/45">Beberapa bingkai kecil untuk momen-momen kamu dan aku.</p>
+        </div>
+        <div class="flex items-center gap-3 text-xs text-white/40"><span class="h-px w-10 bg-pink-200/40"></span> OUR PHOTO WALL <span class="text-pink-200/65">♡</span></div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+        <figure class="group">
+          <div class="photo-shell relative aspect-[4/5] overflow-hidden rounded-[22px] border border-white/10 sm:rounded-[28px]"><img data-photo src="image2.jpeg" alt="Kenangan berdua, foto kedua" loading="lazy" class="absolute inset-0 h-full w-full object-cover" /><div class="photo-placeholder absolute inset-0 hidden flex-col items-center justify-center gap-2 px-3 text-center"><span class="serif text-4xl text-pink-100/75">02</span><span class="text-[9px] leading-4 text-white/50">Tambahkan<br><b class="text-pink-100/70">image2.jpeg</b></span></div><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div><span class="corner-mark corner-tl"></span><span class="corner-mark corner-br"></span><span class="absolute bottom-4 left-4 text-[9px] uppercase tracking-[.18em] text-pink-100/90">memory no. 02</span></div>
+          <figcaption class="px-1 pt-3 text-xs leading-5 text-white/55 sm:text-sm">Si Bocil.</figcaption>
+        </figure>
+        <figure class="group mt-5 sm:mt-10">
+          <div class="photo-shell relative aspect-[4/5] overflow-hidden rounded-[22px] border border-white/10 sm:rounded-[28px]"><img data-photo src="image3.jpeg" alt="Kenangan berdua, foto ketiga" loading="lazy" class="absolute inset-0 h-full w-full object-cover" /><div class="photo-placeholder absolute inset-0 hidden flex-col items-center justify-center gap-2 px-3 text-center"><span class="serif text-4xl text-pink-100/75">03</span><span class="text-[9px] leading-4 text-white/50">Tambahkan<br><b class="text-pink-100/70">image3.jpeg</b></span></div><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div><span class="corner-mark corner-tl"></span><span class="corner-mark corner-br"></span><span class="absolute bottom-4 left-4 text-[9px] uppercase tracking-[.18em] text-pink-100/90">memory no. 03</span></div>
+          <figcaption class="px-1 pt-3 text-xs leading-5 text-white/55 sm:text-sm">Senyum yang istimewa.</figcaption>
+        </figure>
+        <figure class="group">
+          <div class="photo-shell relative aspect-[4/5] overflow-hidden rounded-[22px] border border-white/10 sm:rounded-[28px]"><img data-photo src="image4.jpeg" alt="Kenangan berdua, foto keempat" loading="lazy" class="absolute inset-0 h-full w-full object-cover" /><div class="photo-placeholder absolute inset-0 hidden flex-col items-center justify-center gap-2 px-3 text-center"><span class="serif text-4xl text-pink-100/75">04</span><span class="text-[9px] leading-4 text-white/50">Tambahkan<br><b class="text-pink-100/70">image4.jpeg</b></span></div><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div><span class="corner-mark corner-tl"></span><span class="corner-mark corner-br"></span><span class="absolute bottom-4 left-4 text-[9px] uppercase tracking-[.18em] text-pink-100/90">memory no. 04</span></div>
+          <figcaption class="px-1 pt-3 text-xs leading-5 text-white/55 sm:text-sm">Ihiy rambut baru.</figcaption>
+        </figure>
+        <figure class="group mt-5 sm:mt-10">
+          <div class="photo-shell relative aspect-[4/5] overflow-hidden rounded-[22px] border border-white/10 sm:rounded-[28px]"><img data-photo src="image5.jpeg" alt="Kenangan berdua, foto kelima" loading="lazy" class="absolute inset-0 h-full w-full object-cover" /><div class="photo-placeholder absolute inset-0 hidden flex-col items-center justify-center gap-2 px-3 text-center"><span class="serif text-4xl text-pink-100/75">05</span><span class="text-[9px] leading-4 text-white/50">Tambahkan<br><b class="text-pink-100/70">image5.jpeg</b></span></div><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div><span class="corner-mark corner-tl"></span><span class="corner-mark corner-br"></span><span class="absolute bottom-4 left-4 text-[9px] uppercase tracking-[.18em] text-pink-100/90">memory no. 05</span></div>
+          <figcaption class="px-1 pt-3 text-xs leading-5 text-white/55 sm:text-sm">Si manis aku.</figcaption>
+        </figure>
+        <figure class="group">
+          <div class="photo-shell relative aspect-[4/5] overflow-hidden rounded-[22px] border border-white/10 sm:rounded-[28px]"><img data-photo src="image6.jpeg" alt="Kenangan berdua, foto keenam" loading="lazy" class="absolute inset-0 h-full w-full object-cover" /><div class="photo-placeholder absolute inset-0 hidden flex-col items-center justify-center gap-2 px-3 text-center"><span class="serif text-4xl text-pink-100/75">06</span><span class="text-[9px] leading-4 text-white/50">Tambahkan<br><b class="text-pink-100/70">image6.jpeg</b></span></div><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div><span class="corner-mark corner-tl"></span><span class="corner-mark corner-br"></span><span class="absolute bottom-4 left-4 text-[9px] uppercase tracking-[.18em] text-pink-100/90">memory no. 06</span></div>
+          <figcaption class="px-1 pt-3 text-xs leading-5 text-white/55 sm:text-sm">Bahagia.</figcaption>
+        </figure>
+        <figure class="group mt-5 sm:mt-10">
+          <div class="photo-shell relative aspect-[4/5] overflow-hidden rounded-[22px] border border-white/10 sm:rounded-[28px]"><img data-photo src="image7.jpeg" alt="Kenangan berdua, foto ketujuh" loading="lazy" class="absolute inset-0 h-full w-full object-cover" /><div class="photo-placeholder absolute inset-0 hidden flex-col items-center justify-center gap-2 px-3 text-center"><span class="serif text-4xl text-pink-100/75">07</span><span class="text-[9px] leading-4 text-white/50">Tambahkan<br><b class="text-pink-100/70">image7.jpeg</b></span></div><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div><span class="corner-mark corner-tl"></span><span class="corner-mark corner-br"></span><span class="absolute bottom-4 left-4 text-[9px] uppercase tracking-[.18em] text-pink-100/90">memory no. 07</span></div>
+          <figcaption class="px-1 pt-3 text-xs leading-5 text-white/55 sm:text-sm">Messy hair si cantik.</figcaption>
+        </figure>
+        <figure class="group">
+            <div class="photo-shell relative aspect-[4/5] overflow-hidden rounded-[22px] border border-white/10 sm:rounded-[28px]"><img data-photo src="image8.jpeg" alt="Kenangan berdua, foto kedelapan" loading="lazy" class="absolute inset-0 h-full w-full object-cover" /><div class="photo-placeholder absolute inset-0 hidden flex-col items-center justify-center gap-2 px-3 text-center"><span class="serif text-4xl text-pink-100/75">08</span><span class="text-[9px] leading-4 text-white/50">Tambahkan<br><b class="text-pink-100/70">image8.jpeg</b></span></div><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div><span class="corner-mark corner-tl"></span><span class="corner-mark corner-br"></span><span class="absolute bottom-4 left-4 text-[9px] uppercase tracking-[.18em] text-pink-100/90">memory no. 08</span></div>
+            <figcaption class="px-1 pt-3 text-xs leading-5 text-white/55 sm:text-sm">Bobo canciiii.</figcaption>
+        </figure>
+        <figure class="group mt-5 sm:mt-10">
+          <div class="photo-shell relative aspect-[4/5] overflow-hidden rounded-[22px] border border-white/10 sm:rounded-[28px]"><img data-photo src="image9.jpeg" alt="Kenangan berdua, foto ketujuh" loading="lazy" class="absolute inset-0 h-full w-full object-cover" /><div class="photo-placeholder absolute inset-0 hidden flex-col items-center justify-center gap-2 px-3 text-center"><span class="serif text-4xl text-pink-100/75">07</span><span class="text-[9px] leading-4 text-white/50">Tambahkan<br><b class="text-pink-100/70">image9.jpeg</b></span></div><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div><span class="corner-mark corner-tl"></span><span class="corner-mark corner-br"></span><span class="absolute bottom-4 left-4 text-[9px] uppercase tracking-[.18em] text-pink-100/90">memory no. 09</span></div>
+          <figcaption class="px-1 pt-3 text-xs leading-5 text-white/55 sm:text-sm">Menesisss.</figcaption>
+        </figure>
+        <figure class="group">
+            <div class="photo-shell relative aspect-[4/5] overflow-hidden rounded-[22px] border border-white/10 sm:rounded-[28px]"><img data-photo src="image10.jpeg" alt="Kenangan berdua, foto kedelapan" loading="lazy" class="absolute inset-0 h-full w-full object-cover" /><div class="photo-placeholder absolute inset-0 hidden flex-col items-center justify-center gap-2 px-3 text-center"><span class="serif text-4xl text-pink-100/75">08</span><span class="text-[9px] leading-4 text-white/50">Tambahkan<br><b class="text-pink-100/70">image10.jpeg</b></span></div><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div><span class="corner-mark corner-tl"></span><span class="corner-mark corner-br"></span><span class="absolute bottom-4 left-4 text-[9px] uppercase tracking-[.18em] text-pink-100/90">memory no. 10</span></div>
+            <figcaption class="px-1 pt-3 text-xs leading-5 text-white/55 sm:text-sm">Bocil maen aerrrr.</figcaption>
+        </figure>
+        <figure class="group mt-5 sm:mt-10">
+          <div class="photo-shell relative aspect-[4/5] overflow-hidden rounded-[22px] border border-white/10 sm:rounded-[28px]"><img data-photo src="image11.jpeg" alt="Kenangan berdua, foto kesebelas" loading="lazy" class="absolute inset-0 h-full w-full object-cover" /><div class="photo-placeholder absolute inset-0 hidden flex-col items-center justify-center gap-2 px-3 text-center"><span class="serif text-4xl text-pink-100/75">11</span><span class="text-[9px] leading-4 text-white/50">Tambahkan<br><b class="text-pink-100/70">image11.jpeg</b></span></div><div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div><span class="corner-mark corner-tl"></span><span class="corner-mark corner-br"></span><span class="absolute bottom-4 left-4 text-[9px] uppercase tracking-[.18em] text-pink-100/90">memory no. 11</span></div>
+          <figcaption class="px-1 pt-3 text-xs leading-5 text-white/55 sm:text-sm">PREWED(?).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- WISHES -->
+    <section id="doa" class="mx-auto max-w-6xl scroll-mt-20 px-5 pb-24 sm:px-8 sm:pb-32">
+      <div class="text-center">
+        <p class="section-kicker eyebrow text-[9px] font-semibold text-pink-200/70 sm:text-[10px]">24 candles, countless wishes</p>
+        <h2 class="serif mx-auto mt-4 max-w-3xl text-4xl leading-tight text-white sm:text-5xl">Untuk usia barumu, <span class="italic text-pink-200">semoga…</span></h2>
+        <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/45">Dua puluh empat tahun yang sudah kamu lewatin, dan begitu banyak hal indah yang masih akan kamu lakukan (bersama aku).</p>
+      </div>
+      <div class="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
+        <article class="reason-card rounded-[24px] border border-white/[.09] bg-white/[.025] p-5 sm:p-6"><span class="serif text-2xl italic text-pink-200/70">01</span><h3 class="mt-4 text-sm font-semibold text-pink-50">Hati yang tenang</h3><p class="mt-2 text-xs leading-6 text-white/45">Semoga kamu selalu punya alasan untuk tersenyum, dan ruang untuk beristirahat saat lelah.</p></article>
+        <article class="reason-card rounded-[24px] border border-white/[.09] bg-white/[.025] p-5 sm:p-6"><span class="serif text-2xl italic text-pink-200/70">02</span><h3 class="mt-4 text-sm font-semibold text-pink-50">Mimpi yang tumbuh</h3><p class="mt-2 text-xs leading-6 text-white/45">Semoga satu per satu hal yang kamu doakan menemukan jalannya untuk menjadi nyata.</p></article>
+        <article class="reason-card rounded-[24px] border border-white/[.09] bg-white/[.025] p-5 sm:p-6"><span class="serif text-2xl italic text-pink-200/70">03</span><h3 class="mt-4 text-sm font-semibold text-pink-50">Sehat dan bahagia</h3><p class="mt-2 text-xs leading-6 text-white/45">Semoga tubuhmu sehat, pikiranmu lega, dan hari-harimu dipenuhi hal-hal baik.</p></article>
+        <article class="reason-card rounded-[24px] border border-white/[.09] bg-white/[.025] p-5 sm:p-6"><span class="serif text-2xl italic text-pink-200/70">04</span><h3 class="mt-4 text-sm font-semibold text-pink-50">Cinta yang terasa</h3><p class="mt-2 text-xs leading-6 text-white/45">Semoga kamu tak pernah lupa betapa berharganya dirimu, bukan hanya hari ini, tetapi setiap hari.</p></article>
+      </div>
+      <div class="mt-8 flex flex-col items-center justify-center gap-4 rounded-[28px] border border-pink-100/15 bg-gradient-to-r from-pink-200/[.055] via-white/[.025] to-purple-200/[.045] px-5 py-7 text-center sm:flex-row sm:gap-7 sm:px-8 sm:py-8 sm:text-left">
+        <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-pink-100/20 bg-pink-100/[.08] text-2xl text-pink-100 shadow-[0_0_30px_rgba(247,169,203,.08)]" aria-hidden="true">✧</div>
+        <div class="flex-1"><p class="serif text-xl text-white sm:text-2xl">Satu harapan kecil untukmu</p><p id="wishText" class="mt-2 text-sm leading-6 text-white/50">Semoga dunia lebih sering bersikap lembut kepadamu, sayang.</p></div>
+        <button id="newWishBtn" type="button" class="focus-ring btn-secondary shrink-0 rounded-full px-5 py-3 text-xs font-semibold text-pink-100">Harapan lainnya ↗</button>
+      </div>
+    </section>
+
+    <!-- FINAL NOTE -->
+    <section class="mx-auto max-w-5xl px-5 pb-20 sm:px-8 sm:pb-28">
+      <div class="relative overflow-hidden rounded-[30px] border border-pink-100/15 bg-[#110b12]/80 px-6 py-12 text-center sm:rounded-[40px] sm:px-14 sm:py-16">
+        <div class="absolute inset-x-[15%] top-0 h-px bg-gradient-to-r from-transparent via-pink-200/70 to-transparent" aria-hidden="true"></div>
+        <span class="serif text-4xl text-pink-200/75" aria-hidden="true">“</span>
+        <p class="serif mx-auto max-w-3xl text-2xl leading-relaxed text-white sm:text-4xl sm:leading-relaxed">Dari semua hal baik yang terjadi dalam hidupku, <span class="italic text-pink-200">mengenalmu adalah salah satu yang paling kusyukuri.</span></p>
+        <p class="mt-6 text-xs uppercase tracking-[.2em] text-white/35">with all my love, for my sayang ♡</p>
+        <div class="mt-8 flex flex-col justify-center gap-3 min-[400px]:flex-row">
+          <button id="sendHugBtn" type="button" class="focus-ring btn-primary inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold">Kirim peluk virtual <span aria-hidden="true">♡</span></button>
+          <button id="copyLetterBtn" type="button" class="focus-ring btn-secondary inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white/80"><span aria-hidden="true">▢</span> Salin ucapan</button>
+        </div>
+        <p id="actionFeedback" class="mt-4 min-h-5 text-xs text-pink-100/70" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative z-10 border-t border-white/[.07] px-5 py-7 text-center sm:px-8">
+    <p class="serif text-lg italic text-pink-100/70">Nadziratul Lathifah</p>
+    <p class="mt-2 text-[9px] uppercase tracking-[.23em] text-white/30">25 . 10 . 2026 — made with love</p>
+    <a href="#top" class="focus-ring mt-4 inline-block rounded-full px-3 py-2 text-xs text-white/40 transition hover:text-pink-100">Kembali ke atas ↑</a>
+  </footer>
+
+  <!-- Modal surat: konten interaktifnya diatur melalui script.js -->
+  <div id="letterModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 px-4 py-5 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="letterTitle" aria-hidden="true">
+    <div class="modal-panel relative max-h-[90dvh] w-full max-w-2xl overflow-y-auto rounded-[28px] border border-pink-100/20 bg-[#100b12] p-6 shadow-[0_30px_120px_rgba(0,0,0,.7)] sm:rounded-[34px] sm:p-10">
+      <button id="closeLetterBtn" type="button" class="focus-ring absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-xl text-white/60 transition hover:border-pink-100/30 hover:text-pink-100" aria-label="Tutup surat">×</button>
+      <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-pink-100/20 bg-pink-100/[.08] text-xl text-pink-100">♡</div>
+      <p class="eyebrow text-[9px] font-semibold text-pink-200/65">a letter for my favorite person</p>
+      <h2 id="letterTitle" class="serif mt-3 pr-8 text-3xl leading-tight text-white sm:text-4xl">Untuk sayangku, <span class="italic text-pink-200">Thifah.</span></h2>
+      <div class="my-6 shine-line"></div>
+      <div id="letterCopy" class="space-y-4 text-sm leading-7 text-[#d4c4ce] sm:text-base sm:leading-8">
+        <p>Selamat ulang tahun yang ke-24, sayangku, Nadziratul Lathifah. ♡</p>
+        <p>Hari ini adalah hari tentang kamu, tentang seseorang yang begitu berharga, yang pantas mendapatkan banyak kebahagiaan, ketenangan, dan cinta yang tulus. Aku berharap di usia baru kamu ini, hal-hal baik semakin dekat denganmu, satu per satu doa baikmu menemukan jalannya, dan kamu selalu punya alasan untuk tersenyum.</p>
+        <p>Terima kasih sudah menjadi orang favorit aku.Btw, kamu nggak harus selalu kuat, nggak harus selalu baik-baik saja, dan nggak harus menyenangkan semua orang. Semoga kamu selalu ingat bahwa kamu juga pantas dimengerti, didengarkan, disayangi, dan diberi waktu untuk beristirahat.</p>
+        <p>Untuk setiap langkah yang akan kamu ambil, aku doakan semoga kamu dikelilingi orang-orang baik, diberi kesehatan, dipermudah urusannya, dan didekatkan dengan segala hal yang membuat hatimu tumbuh bahagia. Kalau suatu hari dunia terasa melelahkan, semoga kamu tetap bisa menemukan hal-hal kecil yang membuatmu merasa hangat. Aku akan selalu nemenin kamu, sayang. ♡</p>
+        <p>Selamat bertambah usia. Tetaplah jadi ayangnya aku yang punya cerita, harapan, dan selalu bersinar shining shimering splendid smilikiti. Semoga kamu makin sering tertawa, makin banyak menerima kabar baik, dan makin yakin bahwa dirimu dicintai. Serta semoga makin siap untuk menuju ke jenjang selanjutnya bersama Aku.</p>
+        <p>Aku nggak bisa menjanjikan bahwa setiap hari akan selalu sempurna, tetapi hari ini aku ingin kamu tahu satu hal: aku bersyukur bisa mengenalmu dan merayakan keberadaanmu. Semoga usia 24 ini menjadi bab yang lembut, indah, dan penuh kejutan baik untukmu.</p>
+        <p class="serif pt-2 text-xl italic text-pink-100">Selamat ulang tahun, sayang. Semoga bahagiamu selalu ada, semoga baik selalu menemukanmu. Aku sayang kamu Lafyuuuuu. ♡</p>
+      </div>
+      <div class="mt-8 flex flex-col gap-3 border-t border-white/[.08] pt-6 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between">
+        <span class="text-[10px] uppercase tracking-[.17em] text-white/30">25 Oktober 2026 · 24 tahun</span>
+        <button id="modalCopyBtn" type="button" class="focus-ring btn-primary rounded-full px-5 py-3 text-xs font-bold">Salin surat ini ♡</button>
+      </div>
+    </div>
+  </div>
+
+  <noscript><div class="fixed inset-x-3 bottom-3 z-[100] rounded-xl bg-pink-100 p-4 text-sm text-black">Aktifkan JavaScript untuk menggunakan surat interaktif, hitung mundur, dan tombol-tombol di halaman ini.</div></noscript>
+</body>
+</html>
